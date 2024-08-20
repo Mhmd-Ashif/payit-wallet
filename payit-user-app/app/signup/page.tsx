@@ -26,24 +26,25 @@ export default function Signup() {
     phone: 0,
     password: "",
   });
+
   return (
-    <div className="flex w-screen h-screen justify-center place-content-center gap-10 md:ml-8">
-      <div className="flex items-center  py-12 w-7/12">
-        <div className="mx-auto grid w-[350px] gap-6 ">
-          <div className="grid gap-2 text-center">
+    <div className="flex flex-col lg:flex-row w-full h-screen justify-center items-center lg:gap-10">
+      <div className="flex items-center py-12 w-full lg:w-1/2">
+        <div className="mx-auto w-full max-w-md p-6 lg:p-0">
+          <div className="text-center">
             <h1 className="text-3xl font-bold">Sign Up</h1>
-            <p className="text-balance text-muted-foreground">
+            <p className="text-muted-foreground mt-2">
               Enter Your Details to Proceed Further
             </p>
           </div>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
+          <div className="mt-6 space-y-4">
+            <div>
               <Label htmlFor="name">Name</Label>
               <Input
                 id="name"
                 type="text"
                 placeholder="Ashif"
-                className="rounded-md p-4 border"
+                className="mt-2 p-4 border rounded-md w-full"
                 required
                 onChange={(e) =>
                   setSignup((current) => ({
@@ -53,13 +54,13 @@ export default function Signup() {
                 }
               />
             </div>
-            <div className="grid gap-2">
+            <div>
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
                 placeholder="mhmdashif18@gmail.com"
-                className="rounded-md p-4 border"
+                className="mt-2 p-4 border rounded-md w-full"
                 required
                 onChange={(e) =>
                   setSignup((current) => ({
@@ -69,14 +70,14 @@ export default function Signup() {
                 }
               />
             </div>
-            <div className="grid gap-2">
+            <div>
               <Label htmlFor="phone">Phone Number</Label>
               <Input
                 id="phone"
                 type="text"
                 maxLength={10}
                 placeholder="97102*****"
-                className="rounded-md p-4 border"
+                className="mt-2 p-4 border rounded-md w-full"
                 required
                 onChange={(e) =>
                   setSignup((current) => ({
@@ -86,15 +87,13 @@ export default function Signup() {
                 }
               />
             </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
-              </div>
+            <div>
+              <Label htmlFor="password">Password</Label>
               <Input
                 id="password"
                 type="password"
                 required
-                className="rounded-md p-4 border"
+                className="mt-2 p-4 border rounded-md w-full"
                 onChange={(e) =>
                   setSignup((current) => ({
                     ...current,
@@ -103,13 +102,12 @@ export default function Signup() {
                 }
               />
             </div>
-            <hr></hr>
+            <hr />
             <Button
               disabled={loading}
-              className="w-full p-4  font-semibold text-md"
+              className="w-full p-4 font-semibold text-md"
               onClick={async () => {
                 isLoading(true);
-                router.push("/verify/gmail");
                 const res = await loggups({ ...signup });
                 if (!res) {
                   isLoading(false);
@@ -127,12 +125,12 @@ export default function Signup() {
               {loading ? "Signing In ... " : "Sign Up"}
             </Button>
           </div>
-          <div className="mt-2 text-center text-sm flex justify-between ">
+          <div className="mt-4 text-center text-sm flex justify-between">
             <div>
-              have an account?{" "}
+              Have an account?{" "}
               <a href="/" className="underline">
                 Login
-              </a>{" "}
+              </a>
             </div>
             <div>
               Verified?{" "}
@@ -143,16 +141,18 @@ export default function Signup() {
           </div>
         </div>
       </div>
-      <div className="hidden bg-muted lg:block">
-        <div className="font-mono text-5xl font-bold text-white absolute  text-center top-32">
-          Payment Done Easier with payit
-          <ul className=" text-lg mt-8">
+      <div className="hidden lg:flex lg:w-1/2 h-full bg-muted relative">
+        <div className="absolute top-1/4 left-0 right-0 text-center text-white p-8">
+          <h2 className="font-mono text-2xl lg:text-5xl font-bold">
+            Payment Done Easier with PayIt
+          </h2>
+          <ul className="text-sm lg:text-lg mt-4 space-y-2">
             <li>- Transaction Done Via Phone Number</li>
-            <li>- Quick and Reliable P2P transfers</li>
-            <li>- Payments can be Visualtized by using `PAYIT`</li>
+            <li>- Quick and Reliable P2P Transfers</li>
+            <li>- Payments can be Visualized by using `PAYIT`</li>
           </ul>
         </div>
-        <img src={world.src} className="fit"></img>
+        <img src={world.src} className="w-full h-full object-fill" />
       </div>
     </div>
   );
