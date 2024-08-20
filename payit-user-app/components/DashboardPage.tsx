@@ -22,7 +22,7 @@ export function DashboardPage({
       <div className="text-4xl antialiased text-black text-center pt-8 mb-8 mt-4 md:mt-8 font-bold ml-2 mr-2">
         {`Hi ${name.split(" ")[0]} , Welcome on Board`}
       </div>
-      <div className="pl-4 pr-4 pb-8 md:pb-0 md:pr-0 md:pl-0 md:flex md:space-x-4">
+      <div className="pl-4 pr-4 pb-8 md:pb-0 md:pr-0 md:pl-0 md:flex justify-center md:space-x-4 ">
         <div className="mt-4 mb-7 md:mt-0 md:mb-0 md:pr-4">
           {/* balance */}
           <div>
@@ -96,7 +96,7 @@ export function DashboardPage({
           </div>
           {/* endl */}
         </div>
-        <div className="md:w-8/12 md:pr-4 mb-4 hover:shadow-slate-200 hover:shadow-xl delay-75">
+        <div className="md:w-8/12 mb-4 hover:shadow-slate-200 hover:shadow-xl delay-75">
           <BarComponent transactions={recent}></BarComponent>
         </div>
       </div>
